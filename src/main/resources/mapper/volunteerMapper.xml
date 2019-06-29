@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.th.demo.dao.volunteerMapper">
+    <insert id="addVolunteer" parameterType="com.th.demo.model.volunteer">
+      insert into volunteer (id,password,sex) values (#{id},#{password},#{sex})
+  </insert>
+
+    <select id="selVolunteer" resultType="com.th.demo.model.volunteer">
+        select * from volunteer
+    </select>
+
+    <select id="selVolunteerById" parameterType="String" resultType="com.th.demo.model.volunteer">
+        select * from volunteer where id = #{id}
+    </select>
+
+    <delete id="delVolunteer" parameterType="String">
+        delete from volunteer where numId = #{numId}
+    </delete>
+
+    <update id="updateVolunteer" parameterType="com.th.demo.model.volunteer">
+        update volunteer set name = #{name},password = #{password},sex = #{sex},type = #{type} where id = #{id}
+    </update>
+
+</mapper>
